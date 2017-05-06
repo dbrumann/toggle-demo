@@ -14,7 +14,9 @@
 
     {{ include('blog/_post_tags.html.twig') }}
 
-    {% if features.comments is defined and features.comments == true %}
+    {% if features.comments.enabled == true
+        and features.comments.restricted == false or is_granted('ROLE_ADMIN')
+    %}
 
     <div id="post-add-comment" class="well">
         {# The 'IS_AUTHENTICATED_FULLY' role ensures that the user has entered

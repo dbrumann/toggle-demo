@@ -17,6 +17,7 @@ parameters:
     app_locales: en|fr|de|es|cs|nl|ru|uk|ro|pt_BR|pl|it|ja|id|ca|sl|hr
     app.notifications.email_sender: anonymous@example.com
     env(FEATURE_COMMENTS_ENABLED): false
+    env(FEATURE_COMMENTS_RESTRICTED): false
 
 # Basic configuration for the Symfony framework features
 framework:
@@ -60,7 +61,9 @@ twig:
         - "form/fields.html.twig"
     globals:
         features:
-            comments: '%env(FEATURE_COMMENTS_ENABLED)%'
+            comments:
+                enabled: '%env(FEATURE_COMMENTS_ENABLED)%'
+                restricted: '%env(FEATURE_COMMENTS_RESTRICTED)%'
 
 # Doctrine Configuration (used to access databases and manipulate their information)
 doctrine:

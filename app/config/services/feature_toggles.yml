@@ -1,3 +1,12 @@
 services:
     app.feature_toggles.toggle_router:
         class: AppBundle\FeatureToggle\ToggleRouter
+        calls:
+            - method: registerToggle
+              arguments: [ 'comments_feature', '@app.feature_toggles.comments_feature' ]
+
+    app.feature_toggles.comments_feature:
+        class: AppBundle\FeatureToggle\Toggles\CommentsFeature
+        public: false
+        arguments:
+            - '%env(FEATURE_COMMENTS_ENABLED)%'

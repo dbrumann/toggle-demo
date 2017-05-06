@@ -1,0 +1,22 @@
+services:
+    app.feature_toggles.toggle_router:
+        class: AppBundle\FeatureToggle\ToggleRouter
+        calls:
+            - method: registerToggle
+              arguments: [ 'comments_feature', '@app.feature_toggles.comments_feature' ]
+
+    app.feature_toggles.twig_extension:
+        class: AppBundle\FeatureToggle\TwigExtension
+        public: false
+        arguments:
+            - '@app.feature_toggles.toggle_router'
+        tags:
+            - { name: twig.extension }
+
+    app.feature_toggles.comments_feature:
+        class: AppBundle\FeatureToggle\Toggles\CommentsFeature
+        public: false
+        arguments:
+            - '@security.authorization_checker'
+            - '%env(FEATURE_COMMENTS_ENABLED)%'
+            - '%env(FEATURE_COMMENTS_RESTRICTED)%'

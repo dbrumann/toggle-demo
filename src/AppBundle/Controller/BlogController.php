@@ -92,6 +92,11 @@ class BlogController extends Controller
      */
     public function commentNewAction(Request $request, Post $post)
     {
+        $toggleRouter = $this->get('app.feature_toggles.toggle_router');
+        if (!$toggleRouter->isActive('comments_feature')) {
+            throw $this->createNotFoundException('Page for adding a comment does not exist.');
+        }
+
         $comment = new Comment();
         $comment->setAuthor($this->getUser());
         $comment->setPost($post);

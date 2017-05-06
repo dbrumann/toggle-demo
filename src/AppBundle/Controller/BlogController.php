@@ -92,6 +92,10 @@ class BlogController extends Controller
      */
     public function commentNewAction(Request $request, Post $post)
     {
+        if (! $this->getParameter('app.feature_comments')) {
+            throw $this->createNotFoundException('Page for adding a comment does not exist.');
+        }
+
         $comment = new Comment();
         $comment->setAuthor($this->getUser());
         $comment->setPost($post);

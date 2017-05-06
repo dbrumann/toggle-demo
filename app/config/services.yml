@@ -1,3 +1,6 @@
+imports:
+    - { resource: services/feature_toggles.yml }
+
 services:
     # First we define some basic services to make these utilities available in
     # the entire application

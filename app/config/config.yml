@@ -16,6 +16,7 @@ parameters:
     # This parameter defines the codes of the locales (languages) enabled in the application
     app_locales: en|fr|de|es|cs|nl|ru|uk|ro|pt_BR|pl|it|ja|id|ca|sl|hr
     app.notifications.email_sender: anonymous@example.com
+    app.feature_comments: true
 
 # Basic configuration for the Symfony framework features
 framework:
@@ -59,7 +60,7 @@ twig:
         - "form/fields.html.twig"
     globals:
         features:
-            comments: true
+            comments: '%app.feature_comments%'
 
 # Doctrine Configuration (used to access databases and manipulate their information)
 doctrine:

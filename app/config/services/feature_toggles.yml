@@ -17,4 +17,6 @@ services:
         class: AppBundle\FeatureToggle\Toggles\CommentsFeature
         public: false
         arguments:
+            - '@security.authorization_checker'
             - '%env(FEATURE_COMMENTS_ENABLED)%'
+            - '%env(FEATURE_COMMENTS_RESTRICTED)%'

@@ -92,7 +92,9 @@ class BlogController extends Controller
      */
     public function commentNewAction(Request $request, Post $post)
     {
-        if (! $this->getParameter('app.feature_comments')) {
+        if (! $this->getParameter('env(FEATURE_COMMENTS_ENABLED)')
+            || ($this->getParameter('env(FEATURE_COMMENTS_RESTRICTED)') && !$this->isGranted('ROLE_ADMIN'))
+        ) {
             throw $this->createNotFoundException('Page for adding a comment does not exist.');
         }
 

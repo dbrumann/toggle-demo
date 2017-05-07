@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "dc8eb2fa0a4971f6a7ce4628f2f22cc6",
+    "content-hash": "56ff23261ca52d674c1f9c504cbcad91",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -1269,7 +1269,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pablo D\u00edez",
+                    "name": "Pablo Díez",
                     "email": "pablodip@gmail.com"
                 }
             ],
@@ -1422,6 +1422,121 @@
                 "psr-3"
             ],
             "time": "2016-10-10T12:19:37+00:00"
+        },
+        {
+            "name": "qandidate/toggle",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qandidate-labs/qandidate-toggle.git",
+                "reference": "178b412ec6777d7e5e38c3178d6219a3127696be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qandidate-labs/qandidate-toggle/zipball/178b412ec6777d7e5e38c3178d6219a3127696be",
+                "reference": "178b412ec6777d7e5e38c3178d6219a3127696be",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "predis/predis": "~0.8",
+                "symfony/expression-language": "~2.4"
+            },
+            "suggest": {
+                "predis/predis": "To use the PredisCollection to persist toggles in redis",
+                "symfony/expression-language": "To use the ExpressionCondition to add conditions as a symfony language expression"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Qandidate\\Toggle\\": "lib/Qandidate/Toggle/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander",
+                    "email": "iam.asm89@gmail.com"
+                },
+                {
+                    "name": "Qandidate.com",
+                    "homepage": "http://labs.qandidate.com/"
+                }
+            ],
+            "description": "Feature toggling for your PHP application.",
+            "keywords": [
+                "bits",
+                "feature",
+                "flip",
+                "flipping",
+                "switch",
+                "toggle",
+                "trigger"
+            ],
+            "time": "2016-05-03T20:15:12+00:00"
+        },
+        {
+            "name": "qandidate/toggle-bundle",
+            "version": "0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/qandidate-labs/qandidate-toggle-bundle.git",
+                "reference": "2aa8bf94e7dae3005cf03e08881358aa9b27b730"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/qandidate-labs/qandidate-toggle-bundle/zipball/2aa8bf94e7dae3005cf03e08881358aa9b27b730",
+                "reference": "2aa8bf94e7dae3005cf03e08881358aa9b27b730",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.2",
+                "qandidate/toggle": "~1.0",
+                "symfony/framework-bundle": "~2.7|~3.0"
+            },
+            "require-dev": {
+                "matthiasnoback/symfony-dependency-injection-test": "^1.1",
+                "phpunit/phpunit": "^5.0 || ^4.8.10",
+                "symfony/browser-kit": "~2.7|~3.0",
+                "symfony/framework-bundle": "~2.7|~3.0",
+                "symfony/twig-bundle": "~2.7|~3.0",
+                "twig/twig": "~1.16,>=1.16.2"
+            },
+            "suggest": {
+                "twig/twig": "For using the twig helper"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Qandidate\\Bundle\\ToggleBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Willem-Jan",
+                    "email": "wjzijderveld@gmail.com"
+                },
+                {
+                    "name": "Qandidate.com",
+                    "homepage": "http://labs.qandidate.com"
+                }
+            ],
+            "description": "This Bundle provides the integration with qandidate/toggle. It provides the services and configuration you need to implement feature toggles in your Symfony application.",
+            "time": "2017-05-07T09:10:12+00:00"
         },
         {
             "name": "sensio/distribution-bundle",
@@ -2399,7 +2514,7 @@
             ],
             "authors": [
                 {
-                    "name": "Pablo D\u00edez",
+                    "name": "Pablo Díez",
                     "email": "pablodip@gmail.com"
                 }
             ],
@@ -2522,7 +2637,7 @@
             ],
             "authors": [
                 {
-                    "name": "Dariusz Rumi\u0144ski",
+                    "name": "Dariusz Rumiński",
                     "email": "dariusz.ruminski@gmail.com"
                 },
                 {
@@ -3878,8 +3993,5 @@
         "php": ">=5.5.9",
         "ext-pdo_sqlite": "*"
     },
-    "platform-dev": [],
-    "platform-overrides": {
-        "php": "5.5.9"
-    }
+    "platform-dev": []
 }

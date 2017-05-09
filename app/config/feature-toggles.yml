@@ -1,0 +1,19 @@
+qandidate_toggle:
+    context_factory: 'app.context_factory'
+    persistence:     config
+    toggles:
+        comments_feature:
+            name: 'comments_feature'
+            status: conditionally-active
+            conditions:
+                - name: operator-condition
+                  key: 'username'
+                  operator:
+                    name: equal-to
+                    value: 'jane_admin'
+
+services:
+    app.context_factory:
+        class: Qandidate\Bundle\ToggleBundle\Context\UserContextFactory
+        public: false
+        arguments: [ '@security.token_storage' ]

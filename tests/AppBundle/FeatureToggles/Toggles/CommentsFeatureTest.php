@@ -3,6 +3,7 @@
 namespace Tests\AppBundle\FeatureToggle\Toggles;
 
 use AppBundle\FeatureToggle\Toggles\CommentsFeature;
+use Psr\Log\NullLogger;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class CommentsFeatureTest extends \PHPUnit_Framework_TestCase
@@ -11,6 +12,7 @@ class CommentsFeatureTest extends \PHPUnit_Framework_TestCase
     {
         $authChecker = $this->getMock(AuthorizationCheckerInterface::class);
         $toggle = new CommentsFeature($authChecker, false, false);
+        $toggle->setLogger(new NullLogger());
 
         $this->assertFalse($toggle->isActive());
     }
@@ -19,6 +21,7 @@ class CommentsFeatureTest extends \PHPUnit_Framework_TestCase
     {
         $authChecker = $this->getMock(AuthorizationCheckerInterface::class);
         $toggle = new CommentsFeature($authChecker, true, false);
+        $toggle->setLogger(new NullLogger());
 
         $this->assertTrue($toggle->isActive());
     }
@@ -27,6 +30,7 @@ class CommentsFeatureTest extends \PHPUnit_Framework_TestCase
     {
         $authChecker = $this->getMock(AuthorizationCheckerInterface::class);
         $toggle = new CommentsFeature($authChecker, true, true);
+        $toggle->setLogger(new NullLogger());
 
         $authChecker
             ->expects($this->once())
@@ -41,6 +45,7 @@ class CommentsFeatureTest extends \PHPUnit_Framework_TestCase
     {
         $authChecker = $this->getMock(AuthorizationCheckerInterface::class);
         $toggle = new CommentsFeature($authChecker, true, true);
+        $toggle->setLogger(new NullLogger());
 
         $authChecker
             ->expects($this->once())

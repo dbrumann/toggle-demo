@@ -20,3 +20,5 @@ services:
             - '@security.authorization_checker'
             - '%env(FEATURE_COMMENTS_ENABLED)%'
             - '%env(FEATURE_COMMENTS_RESTRICTED)%'
+        calls:
+            - ['setLogger', ['@logger']]
